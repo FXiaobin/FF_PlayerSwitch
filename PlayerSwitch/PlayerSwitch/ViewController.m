@@ -130,6 +130,18 @@
     statusBar.hidden = NO;
 }
 
+///屏幕将要旋转时回调
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator{
+    if (size.width > size.height) { //横屏
+        self.isFull = YES;
+//        self.playerView.fullBtn.selected = YES;
+        
+    }else if (size.width < size.height){    //竖屏
+        self.isFull = NO;
+//        self.playerView.fullBtn.selected = NO;
+    }
+}
+
 #pragma mark - lazy
 
 -(PlayerView *)playerView{
